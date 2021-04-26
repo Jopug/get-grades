@@ -53,8 +53,8 @@ user = input("User Name: ")
 pwd = getpass()
 
 baseLineGrades = getGrades(user, pwd)
+print("Baseline Grades")
 for key in baseLineGrades:
-    print("Baseline Grades")
     print(str(key) + " - " + str(baseLineGrades[key]))
 
 while True:
