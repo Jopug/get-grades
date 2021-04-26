@@ -12,16 +12,16 @@ toast = ToastNotifier()
 
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 
-def getGrades():
+def getGrades(user, pwd):
     driver = webdriver.Chrome(PATH, options=option)
 
     driver.get("https://epprd.mcmaster.ca/psp/prepprd/?cmd=login")
 
     UID_Field = driver.find_element_by_id("userid")
-    UID_Field.send_keys(input("User Name: ")) 
+    UID_Field.send_keys(user) 
 
     PWD_Field = driver.find_element_by_id("pwd")
-    PWD_Field.send_keys(getpass())
+    PWD_Field.send_keys(pwd)
 
     PWD_Field.send_keys(Keys.RETURN)
 
@@ -49,13 +49,16 @@ def getGrades():
 
     return grades
 
-baseLineGrades = getGrades()
+user = input("User Name: ")
+pwd = getpass()
+
+baseLineGrades = getGrades(user, pwd)
 for key in baseLineGrades:
     print("Baseline Grades")
     print(str(key) + " - " + str(baseLineGrades[key]))
 
 while True:
-    newGrades = getGrades()
+    newGrades = getGrades(user, pwd)
     for key in newGrades:
         if baseLineGrades[key] != newGrades[key] :
             print("NEW GRADE RELEASED")
