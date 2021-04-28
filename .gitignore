@@ -1,3 +1,5 @@
 get-grades.code-workspace
 .vscode/settings.json
 __pycache__/includes.cpython-38.pyc
+*.pyo
+*.pyc
