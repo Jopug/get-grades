@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 
-import time
-from datetime import datetime
-from getpass import getpass
-
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from win10toast import ToastNotifier
+from includes import *
 
 option = webdriver.ChromeOptions()
 option.add_argument('headless')
@@ -17,7 +11,7 @@ PATH = "C:\Program Files (x86)\chromedriver.exe"
 
 def getGrades(user, pwd):
 
-    print("[Time: " + str(datetime.now().strftime("%H:%M:%S") + "]"))
+    print("\n[Time: " + str(datetime.now().strftime("%H:%M:%S") + "]\n"))
 
     driver = webdriver.Chrome(PATH, options=option)
 
@@ -28,7 +22,6 @@ def getGrades(user, pwd):
 
     PWD_Field = driver.find_element_by_id("pwd")
     PWD_Field.send_keys(pwd)
-
     PWD_Field.send_keys(Keys.RETURN)
 
     time.sleep(3)
