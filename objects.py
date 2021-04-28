@@ -6,7 +6,10 @@ class site:
 
     def __init__(self, name, loginURL, tableData, usr, pwd, gradesURL, *args):
 
-        self.PATH = "C:\Program Files (x86)\chromedriver.exe"
+        if platform == "win32":
+            self.PATH = "C:\Program Files (x86)\chromedriver.exe"
+        elif platform == "linux" or platform == "linux2":
+            self.PATH = "/usr/bin/chromedriver"
         self.grades = {}
 
         self.name = name
