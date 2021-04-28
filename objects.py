@@ -148,9 +148,10 @@ def mosaic():
     timeWait = [3, "time.sleep(3)"]
 
     # Click ok on grades page
-    clickOk = [5, 'driver.find_element_by_id("#ICOK").click()']
+    #clickOk = [5, 'driver.find_element_by_id("#ICOK").click()']
+    #clickOk = [5, 'print("hi")']
 
-    website = site('mosaic', "https://epprd.mcmaster.ca/psp/prepprd/?cmd=login", tableData, usr, pwd, gradesURL, timeWait, clickOk)
+    website = site('mosaic', "https://epprd.mcmaster.ca/psp/prepprd/?cmd=login", tableData, usr, pwd, gradesURL, timeWait)#, clickOk)
 
     recGrades = website.getGrades()
 
